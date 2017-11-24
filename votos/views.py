@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 
 # Create your views here.
+from .models import *
 from votos.models import *
 
 
@@ -19,6 +20,10 @@ def resultado_global(request):
     """
     context={}
     context['distritos'] = Distrito.objects.all()
+
+
+    distrito = Distrito.objects.all()
+
     #TODO TU CODIGO AQUI
 
     return render(request,'global.html',context)
@@ -36,5 +41,7 @@ def resultado_distrital(request):
     context={}
 
     #TODO TU CODIGO AQUI
+    
+
 
     return render(request,'distrital.html',context)

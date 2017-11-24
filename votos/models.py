@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.conf import settings
+from django.db import models
 
 # Create your models here.
 
@@ -27,8 +29,12 @@ class Candidato(models.Model):
     #TODO Completar segun consideraciones del desarrollador
     En este comentario escribir por que se decide modelar de esta
     forma la clase
-    """
-    pass
+
+    Utilize este modelo ya que se debe saber por obligacion el distrito
+    al que pertenece el candidato al que se votara
+    """    
+
+    distrito = models.ForeignKey(Distrito)
 
 
 class Votos(models.Model):
@@ -36,5 +42,13 @@ class Votos(models.Model):
     #TODO Completar segun consideraciones del desarrollador
     En este comentario escribir por que se decide modelar de esta
     forma la clase
+
+    por lo primero use una variable "valido" de tipo boolean ya que con esto
+    se puede definir como se deben contar los votos. Tambien utilize esta 
+    variable "candidato" ya que como se debe saber a que Candidato
+    pertenece el voto se necesitaria una foreignkey de la misma, por eso
+    use este tipo de modelo 
     """
-    pass
+    
+    candidato = models.ForeignKey(Candidato)
+    valido = models.BooleanField(null=False)
