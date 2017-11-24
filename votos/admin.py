@@ -6,6 +6,6 @@ from models import *
 
 # TODO Register your models here.
 
-admin.site.register(Votos)
 admin.site.register(Distrito)
+admin.site.register(Votos)
 admin.site.register(Candidato)

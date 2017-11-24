@@ -8,7 +8,7 @@ from .models import *
 from votos.models import *
 
 
-def resultado_global(request):
+def resultado_global(request, candidato_id):
     """
     Generar la vista para devolver el resultado global de la elección.
     Tener en cuenta que tiene que tener:
@@ -26,6 +26,15 @@ def resultado_global(request):
 
     #TODO TU CODIGO AQUI
 
+
+
+    if candidato == "nulo": 
+        
+        nul_candidato = vot_candidato
+      por_nulo = ((nul_candidato*100)/votos)
+        return render(request,'global.html',context)
+
+
     return render(request,'global.html',context)
 
 
@@ -41,7 +50,7 @@ def resultado_distrital(request):
     context={}
 
     #TODO TU CODIGO AQUI
-    
+
 
 
     return render(request,'distrital.html',context)
